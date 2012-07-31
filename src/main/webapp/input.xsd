@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 (http://www.altova.com) by Thanassis (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="LogoInvoice">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DocumentNumber" type="xs:string"/>
+				<xs:element name="DocumentDate" type="xs:date"/>
+				<xs:element name="InvoiceDate" type="xs:date"/>
+				<xs:element name="DeliveryAddress">
+					<xs:complexType>
+						<xs:sequence minOccurs="0">
+							<xs:element name="city" type="xs:string"/>
+							<xs:element name="subcity" type="xs:string"/>
+							<xs:element name="zip" type="xs:string"/>
+							<xs:element name="DoorNumber" type="xs:string"/>
+							<xs:element name="StreetNumber" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

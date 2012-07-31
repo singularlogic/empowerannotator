@@ -1,0 +1,194 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>annotator.empower</groupId>
+  <artifactId>annotator</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Empower Annotator web 2.0 Interface</name>
+
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+
+    <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8</version>
+    </dependency>
+
+      <!-- SL4J Abstraction -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.6.5</version>
+      </dependency>
+
+    <!-- SL4J-log4j Bridge-->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.6.5</version>
+      </dependency>
+
+      <!-- XSOM -->
+      <dependency>
+          <groupId>com.sun.xsom</groupId>
+          <artifactId>xsom</artifactId>
+          <version>20110809</version>
+      </dependency>
+
+      <!-- JSON -->
+      <dependency>
+          <groupId>net.sf.json-lib</groupId>
+          <artifactId>json-lib</artifactId>
+          <version>2.4</version>
+          <classifier>jdk15</classifier>
+      </dependency>
+
+      <!-- Commons lang -->
+      <dependency>
+          <groupId>commons-lang</groupId>
+          <artifactId>commons-lang</artifactId>
+          <version>2.3</version>
+      </dependency>
+
+      <!-- Bean Utils -->
+      <dependency>
+          <groupId>commons-beanutils</groupId>
+          <artifactId>commons-beanutils</artifactId>
+          <version>1.8.0</version>
+      </dependency>
+
+      <!-- relaxng -->
+      <dependency>
+          <groupId>relaxngDatatype</groupId>
+          <artifactId>relaxngDatatype</artifactId>
+          <version>20020414</version>
+      </dependency>
+
+      <!-- saxon -->
+      <dependency>
+          <groupId>net.sf.saxon</groupId>
+          <artifactId>saxon</artifactId>
+          <version>8.7</version>
+      </dependency>
+
+      <!-- ezmorph -->
+      <dependency>
+          <groupId>net.sf.ezmorph</groupId>
+          <artifactId>ezmorph</artifactId>
+          <version>1.0.6</version>
+      </dependency>
+
+      <!-- xerxes -->
+      <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+          <version>2.10.0</version>
+      </dependency>
+
+  </dependencies>
+
+    <build>
+        <finalName>annotator</finalName>
+
+        <plugins>
+
+            <!-- Test plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/Test*.java</include>
+                    </includes>
+                </configuration>
+
+            </plugin>
+
+
+            <!-- Transfer to JBOSS Plugin-->
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.1.1.Final</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+
+                        <!-- patroklos configuration  -->
+                        <configuration>
+                            <hostname>192.168.1.201</hostname>
+                            <port>9999</port>
+                            <username>admin</username>
+                            <password>jboss</password>
+                            <filename>annotator.war</filename>
+                        </configuration>
+
+                        <!-- Local configuration -->
+                        <!--<configuration>
+                            <hostname>127.0.0.1</hostname>
+                            <port>9999</port>
+                            <filename>bqi.war</filename>
+                        </configuration>
+                        -->
+
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+   <distributionManagement>
+        <repository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>ubitech-releases</id>
+            <name>SingularLogic release repository</name>
+            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ubitech-snapshots</id>
+            <name>SingularLogic snapshot repository</name>
+            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <repositories>
+        <!-- Global Repository -->
+        <repository>
+            <id>Jboss repository</id>
+            <url>http://repository.jboss.org/nexus/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <!-- SingularLogic Repositories -->
+        <repository>
+            <id>ubitech-releases</id>
+            <name>SingularLogic release repository</name>
+            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-releases/</url>
+        </repository>
+        <repository>
+            <id>ubitech-snapshots</id>
+            <name>SingularLogic snapshot repository</name>
+            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-snapshots/</url>
+        </repository>
+
+
+    </repositories>
+
+
+</project>
