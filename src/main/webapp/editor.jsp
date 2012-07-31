@@ -13,6 +13,7 @@
 	href="css/screen.css">
 <!--  <title>Empower SAL Mapping Tool</title>-->
 <title>Mapping Tool</title>
+
 <link rel="stylesheet" type="text/css" href="js/mapping/lib/yui/reset-fonts-grids/reset-fonts-grids.css" />
 <link rel="stylesheet" type="text/css" href="js/mapping/lib/yui/resize/assets/skins/sam/resize.css" />
 <link rel="stylesheet" type="text/css" href="js/mapping/lib/yui/layout/assets/skins/sam/layout.css" />

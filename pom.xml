@@ -97,6 +97,16 @@
 
         <plugins>
 
+            <!-- source level plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>                
+
             <!-- Test plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -134,11 +144,13 @@
                             <filename>annotator.war</filename>
                         </configuration>
 
-                        <!-- Local configuration -->
-                        <!--<configuration>
+                        <!-- Eleni Local configuration 
+                        <configuration>
                             <hostname>127.0.0.1</hostname>
                             <port>9999</port>
-                            <filename>bqi.war</filename>
+                            <username>jboss</username>
+                            <password>ego</password>
+                            <filename>annotator.war</filename>
                         </configuration>
                         -->
 
