@@ -640,7 +640,8 @@ function previewTransformResponse(response, service_id, map_type, selections)
     var mappingForm = document.createElement("form");
     mappingForm.method = "post";
     //mappingForm.action = "http://localhost:8080/Empower/Controller?op=post_mappings";
-    mappingForm.action = "http://localhost:8080/Semantix/Controller?op=post_mappings";
+    //mappingForm.action = "http://localhost:8080/Semantix/Controller?op=post_mappings";
+    mappingForm.action = "http://127.0.0.1:8080/empower/DIController?op=post_mappings";
     var mappings = document.createElement("input");
     mappings.setAttribute("name", "json");
     mappings.setAttribute("value", response.json);

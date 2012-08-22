@@ -8,7 +8,8 @@
 	String command = request.getParameter("command");
 	out.clear();
 	response.setContentType("text/plain; charset=UTF-8");
-	String xml_rep_path = new String("/home/ubiadmin/appservers/jboss711final/empower/filesystem/semantix_rep/");
+	//String xml_rep_path = new String("/home/ubiadmin/appservers/jboss711final/empower/filesystem/semantix_rep/");
+        String xml_rep_path = new String("/home/eleni/Documents/ubi/empower/empower-deliverable-september/empower/");
 
 	if(command != null) {
 		if(command.equals("init")) {

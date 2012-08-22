@@ -160,11 +160,23 @@ abstract public class AbstractMappingManager {
 		if(this.targetDefinition.has("namespaces")) {
 			JSONObject object = this.targetDefinition.getJSONObject("namespaces");
 			HashMap<String, String> map = new HashMap<String, String>();
+                        
+                        if(mapping != null) 
+                        {
+                        for(Object entry : object.keySet()) {
+				String key = (String) entry;
+				String value = object.getString(key);
+                                map.put(value, key);      
+			}
+                        
+                        }
+                        else{
 			for(Object entry : object.keySet()) {
 				String key = (String) entry;
 				String value = object.getString(key);
-				map.put(key, value);
+				map.put(key, value);       
 			}
+                        }
 			
 			this.getXSDParser().setNamespaces(map);
 		}
