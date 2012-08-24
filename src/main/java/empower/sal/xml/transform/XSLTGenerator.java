@@ -80,9 +80,6 @@ public class XSLTGenerator {
                 String key = (String) o;
                 String value = namespaces.getString(key);
                 System.out.println("key: " + key + " value: " + value);
-
-                System.out.println("key-eleni: " + key + " value-eleni: " + value);
-
                 if (value.length() > 0) {
                     sb.append("xmlns:" + key + "=\"" + value + "\" ");
                 }
