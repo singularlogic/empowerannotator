@@ -48,7 +48,7 @@
         <script type="text/javascript" src="js/mapping/lib/yui/calendar/calendar-min.js"></script> 
 
 
-        <script type="text/javascript" src="js/htmlEscape.js"></script>
+        <!--<script type="text/javascript" src="js/htmlEscape.js"></script>-->
         <script type="text/javascript" src="js/inPlaceEditing.js"></script>
         <script type="text/javascript" src="js/mapping/DDSend.js"></script>
         <script type="text/javascript" src="js/mapping/toolInit.js"></script>
@@ -98,7 +98,7 @@
         </div>
         <hr/>
         <div id="toolbar_buttons_container">
-            <a class="button" href="#" onclick="javascript:previewTransform('<%= (String)request.getParameter("service_id") %>','<%= (String)request.getParameter("map_type") %>','<%= (String)request.getParameter("selections") %>');"><span>Annotate</span></a> 
+            <a class="button" href="#" onclick="javascript:previewTransform('<%= (String)request.getParameter("schema_id") %>','<%= (String)request.getParameter("service_id") %>','<%= (String)request.getParameter("map_type") %>','<%= (String)request.getParameter("selections") %>','<%= (String)request.getParameter("outputType") %>');"><span>Annotate</span></a> 
             <a class="button" href="#" onclick="javascript:mappingSummary();"><span>Summary</span></a> 				
         </div>
         <br/>
