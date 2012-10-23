@@ -603,14 +603,14 @@ function enableConstantValueEditingForClass(className) {
     }
 }
 
-function previewTransform(schema_id,service_id, map_type, selections,outputType)
+function previewTransform(schema_id,service_id, map_type, selections,outputType,xbrl)
 {
 	//transformPanel.setBody('<center><img src="js/mapping/lib/yui/carousel/assets/ajax-loader.gif" /></center>');
 	//transformPanel.show();
-	ajaxPreviewTransform(schema_id,service_id, map_type, selections,outputType);
+	ajaxPreviewTransform(schema_id,service_id, map_type, selections,outputType,xbrl);
 }
 
-function previewTransformResponse(response, schema_id, service_id, map_type, selections,outputType)
+function previewTransformResponse(response, schema_id, service_id, map_type, selections,outputType,xbrl)
 {
     /*
 	var content = '';
@@ -672,9 +672,9 @@ function previewTransformResponse(response, schema_id, service_id, map_type, sel
     mappings.setAttribute("value", schema_id);
     mappingForm.appendChild(mappings);
     
-    var mappings = document.createElement("input");
+     var mappings = document.createElement("input");
     mappings.setAttribute("name", "xbrl");
-    mappings.setAttribute("value", outputType);
+    mappings.setAttribute("value", xbrl);
     mappingForm.appendChild(mappings);
     
     

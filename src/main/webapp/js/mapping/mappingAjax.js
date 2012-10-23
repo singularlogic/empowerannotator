@@ -539,7 +539,7 @@ function ajaxAdditionalMappings(id, index) {
     }, "command=" + command + "&id=" + id + "&index=" + index);
 }
 
-function ajaxPreviewTransform(schema_id,service_id, map_type,selections,outputType) {
+function ajaxPreviewTransform(schema_id,service_id, map_type,selections,outputType,xbrl) {
     var command = "previewTransform";
     YAHOO.util.Connect.asyncRequest('POST', ajaxRequestURL,
     {
@@ -551,7 +551,7 @@ function ajaxPreviewTransform(schema_id,service_id, map_type,selections,outputTy
 
             try {
                 response = YAHOO.lang.JSON.parse(o.responseText);
-                previewTransformResponse(response, schema_id ,service_id, map_type,selections,outputType);
+                previewTransformResponse(response, schema_id ,service_id, map_type,selections,outputType,xbrl);
             } catch(e) {
                 alert("Error executing " + command + "\n" + e.name + ":" + e.message);
             }

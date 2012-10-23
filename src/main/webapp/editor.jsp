@@ -98,7 +98,7 @@
         </div>
         <hr/>
         <div id="toolbar_buttons_container">
-            <a class="button" href="#" onclick="javascript:previewTransform('<%= (String)request.getParameter("schema_id") %>','<%= (String)request.getParameter("service_id") %>','<%= (String)request.getParameter("map_type") %>','<%= (String)request.getParameter("selections") %>','<%= (String)request.getParameter("outputType") %>');"><span>Annotate</span></a> 
+            <a class="button" href="#" onclick="javascript:previewTransform('<%= (String)request.getParameter("schema_id") %>','<%= (String)request.getParameter("service_id") %>','<%= (String)request.getParameter("map_type") %>','<%= (String)request.getParameter("selections") %>','<%= (String)request.getParameter("outputType") %>','<%= (String)request.getParameter("xbrl") %>');"><span>Annotate</span></a> 
             <a class="button" href="#" onclick="javascript:mappingSummary();"><span>Summary</span></a> 				
         </div>
         <br/>
