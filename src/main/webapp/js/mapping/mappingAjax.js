@@ -8,8 +8,8 @@ function ajaxInitMappings(input, inputType, mapping, output, outputType) {
 
   
     if (input=='null' && output=='null'){
-        alert("Welcome to annotator! Please use the Empower Tool so as to choose the Schemas and Services you are interested in Annotating!");
-        location = "http://127.0.0.1:8080/empower/signin.jsp";
+        alert("You attempted to use the Annotator bypassing the Adaptation Environment! Please login to the EMPOWER platform first in order to use this tool!!");
+        location = "../empower/signin.jsp";
      }else{
         YAHOO.util.Connect.asyncRequest('POST', ajaxRequestURL,
         {

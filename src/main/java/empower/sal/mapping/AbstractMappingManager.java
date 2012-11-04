@@ -458,6 +458,8 @@ abstract public class AbstractMappingManager {
 
 	public JSONObject addCondition(String target) {
 		JSONObject targetElement = this.elementCache.get(target);
+                
+                
 		
 		targetElement.put("condition", new JSONObject().element("xpath", "").element("value", ""));
 		saveMappings();
@@ -755,7 +757,7 @@ abstract public class AbstractMappingManager {
 		String templateMatch = "/";
 		String mappings = this.getTargetDefinition().toString();
                 		
-                System.out.println("mappings = " + mappings);
+                System.out.println("First 1000 caracters mappings = " + mappings.substring(0, 1000));
 		xslt.setTemplateMatch(templateMatch);
                 System.out.println("**** XSLT  = " + xslt.generateFromString(mappings));                
 		

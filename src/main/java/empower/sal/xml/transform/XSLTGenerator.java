@@ -323,7 +323,13 @@ public class XSLTGenerator {
                 return "=";
             } else if (relationalop.equalsIgnoreCase("NEQ")) {
                 return "!=";
-            }
+            } else if (relationalop.equalsIgnoreCase("EXISTS")) {
+                return "EXISTS";
+            } else if (relationalop.equalsIgnoreCase("NOTEXISTS")) {
+                return "NOTEXISTS";
+            } 
+            
+            
         }
 
         return "=";
@@ -371,7 +377,7 @@ public class XSLTGenerator {
                         String conditionXPath = condition.getString("xpath");
                         if (conditionXPath.length() > 0) {
                             String testXPath = (normaliseXPath(conditionXPath));
-                            if (conditionOp.equals("EXISTS")) {
+                            if (conditionOp.equalsIgnoreCase("EXISTS")) {
                                 result += testXPath;
                             } else if (conditionOp.equals("NOTEXISTS")) {
                                 result += "not(" + testXPath + ")";
