@@ -757,7 +757,7 @@ abstract public class AbstractMappingManager {
 		String templateMatch = "/";
 		String mappings = this.getTargetDefinition().toString();
                 		
-                System.out.println("First 1000 caracters mappings = " + mappings.substring(0, 1000));
+                //System.out.println("First 1000 caracters mappings = " + mappings.substring(0, 1000));
 		xslt.setTemplateMatch(templateMatch);
                 System.out.println("**** XSLT  = " + xslt.generateFromString(mappings));                
 		
