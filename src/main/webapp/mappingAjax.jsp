@@ -2,6 +2,8 @@
 <%@page import="java.util.Collection"%>
 <%@page import="net.sf.json.*"%>
 <%@page import="empower.sal.mapping.*"%>
+<%@ page import="java.util.Properties" %>
+<%@ page import="java.io.InputStream" %>
 <jsp:useBean id='mappings' class='empower.sal.example.ExampleMappingManager' scope='session'/>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -9,7 +11,13 @@
 	out.clear();
 	response.setContentType("text/plain; charset=UTF-8");
 	//String xml_rep_path = new String("/var/www/empower/empowerdata/");
-        String xml_rep_path = new String("/home/eleni/Documents/ubi/empower/empower-deliverable-september/empower/");
+    //String xml_rep_path = new String("/home/eleni/Documents/ubi/empower/empower-deliverable-september/empower/");
+
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    Properties properties = new Properties();
+    InputStream in =classLoader.getResourceAsStream("myproperties.properties");
+    properties.load(in);
+    String xml_rep_path= properties.getProperty("repo.path").toString();
 
 	if(command != null) {
 		if(command.equals("init")) {
