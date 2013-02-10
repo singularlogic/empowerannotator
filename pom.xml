@@ -5,8 +5,8 @@
   <groupId>annotator.empower</groupId>
   <artifactId>annotator</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Empower Annotator web 2.0 Interface</name>
+  <version>0.9.0-SNAPSHOT</version>
+  <name>Empower Mapping Interface</name>
 
   <url>http://maven.apache.org</url>
      <properties>
@@ -120,44 +120,6 @@
                         <include>**/Test*.java</include>
                     </includes>
                 </configuration>
-
-            </plugin>
-
-
-            <!-- Transfer to JBOSS Plugin-->
-
-            <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>7.1.1.Final</version>
-                <executions>
-                    <execution>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-
-                        <!-- patroklos configuration  
-                        <configuration>
-                            <hostname>192.168.1.201</hostname>
-                            <port>9999</port>
-                            <username>admin</username>
-                            <password>jboss</password>
-                            <filename>annotator.war</filename>
-                        </configuration>-->
-                        
-                        <!-- Eleni Local configuration  
-                        <configuration>
-                            <hostname>127.0.0.1</hostname>
-                            <port>9999</port>
-                            <username>jboss</username>
-                            <password>ego</password>
-                            <filename>annotator.war</filename>
-                        </configuration>-->
-                       
-
-                    </execution>
-                </executions>
             </plugin>
 
             <plugin>
@@ -177,68 +139,61 @@
 
     </build>
 
-<!--
-   <distributionManagement>
-        <repository>
-            <uniqueVersion>true</uniqueVersion>
-            <id>ubitech-releases</id>
-            <name>SingularLogic release repository</name>
-            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>ubitech-snapshots</id>
-            <name>SingularLogic snapshot repository</name>
-            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
--->
-<!--
-    <repositories>
-        <repository>
-            <id>Jboss repository</id>
-            <url>http://repository.jboss.org/nexus/content/repositories/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>ubitech-releases</id>
-            <name>SingularLogic release repository</name>
-            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-releases/</url>
-        </repository>
-        <repository>
-            <id>ubitech-snapshots</id>
-            <name>SingularLogic snapshot repository</name>
-            <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-snapshots/</url>
-        </repository>
 
-
-    </repositories>
--->
-<!--
     <profiles>
         <profile>
             <id>development</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+            <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <repo.path>/home/eleni/Documents/ubi/empower/empower-deliverable-september/empower/</repo.path>
             </properties>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jboss.as.plugins</groupId>
+                            <artifactId>jboss-as-maven-plugin</artifactId>
+                            <version>7.1.1.Final</version>
+                            <executions>
+                                <execution>
+                                    <phase>install</phase>
+                                    <goals>
+                                        <goal>deploy</goal>
+                                    </goals>
+                                       <configuration>
+                                           <hostname>127.0.0.1</hostname>
+                                           <port>9999</port>
+                                           <username>jboss</username>
+                                           <password>ego</password>
+                                       </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
         </profile>
+
         <profile>
-            <id>testing</id>
+            <id>deployment</id>
             <properties>
-                <repo.path>/home/eleni/Documents/ubi/empower/empower-deliverable-september/empowerTest</repo.path>
             </properties>
-        </profile>
-        <profile>
-            <id>production</id>
-            <properties>
-                <repo.path>/var/www/empower/empowerdata/</repo.path>
-            </properties>
+            <distributionManagement>
+                <repository>
+                    <uniqueVersion>true</uniqueVersion>
+                    <id>ubitech-releases</id>
+                    <name>UBITECH release repository</name>
+                    <url>http://192.168.1.202:6060/nexus/content/repositories/releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>ubitech-snapshots</id>
+                    <name>UBITECH snapshot repository</name>
+                    <url>http://192.168.1.202:6060/nexus/content/repositories/snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
         </profile>
     </profiles>
--->
+
 
 </project>
