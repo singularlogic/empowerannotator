@@ -9,7 +9,9 @@
   <name>Empower Annotator web 2.0 Interface</name>
 
   <url>http://maven.apache.org</url>
-
+     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
   <dependencies>
 
     <!-- JUnit -->
@@ -130,39 +132,52 @@
                 <version>7.1.1.Final</version>
                 <executions>
                     <execution>
-                        <phase>install</phase>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
 
-                        <!-- patroklos configuration  -->
+                        <!-- patroklos configuration  
                         <configuration>
                             <hostname>192.168.1.201</hostname>
                             <port>9999</port>
                             <username>admin</username>
                             <password>jboss</password>
                             <filename>annotator.war</filename>
-                        </configuration>
-
-                        <!-- Eleni Local configuration 
+                        </configuration>-->
+                        
+                        <!-- Eleni Local configuration  
                         <configuration>
                             <hostname>127.0.0.1</hostname>
                             <port>9999</port>
                             <username>jboss</username>
                             <password>ego</password>
                             <filename>annotator.war</filename>
-                        </configuration>
-                        -->
+                        </configuration>-->
+                       
 
                     </execution>
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
 
     </build>
 
-
+<!--
    <distributionManagement>
         <repository>
             <uniqueVersion>true</uniqueVersion>
@@ -176,10 +191,9 @@
             <url>http://192.168.1.201:8081/nexus/content/repositories/ubitech-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-
-
+-->
+<!--
     <repositories>
-        <!-- Global Repository -->
         <repository>
             <id>Jboss repository</id>
             <url>http://repository.jboss.org/nexus/content/repositories/releases</url>
@@ -187,7 +201,6 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-        <!-- SingularLogic Repositories -->
         <repository>
             <id>ubitech-releases</id>
             <name>SingularLogic release repository</name>
@@ -201,6 +214,31 @@
 
 
     </repositories>
-
+-->
+<!--
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <repo.path>/home/eleni/Documents/ubi/empower/empower-deliverable-september/empower/</repo.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>testing</id>
+            <properties>
+                <repo.path>/home/eleni/Documents/ubi/empower/empower-deliverable-september/empowerTest</repo.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <repo.path>/var/www/empower/empowerdata/</repo.path>
+            </properties>
+        </profile>
+    </profiles>
+-->
 
 </project>
