@@ -19,6 +19,11 @@
     properties.load(in);
     String xml_rep_path= properties.getProperty("repo.path").toString();
 
+    if (xml_rep_path.equalsIgnoreCase("/var/www/empower/empowerdata/")){
+        String user_home=System.getProperty("user.home");
+        xml_rep_path = user_home+"/empower/empowerdata/";
+    }
+
 	if(command != null) {
 		if(command.equals("init")) {
 			String input = request.getParameter("input");
