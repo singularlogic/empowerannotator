@@ -5,7 +5,7 @@
   <groupId>eu.empower.annotator</groupId>
   <artifactId>eu.empower.annotator</artifactId>
   <packaging>war</packaging>
-  <version>0.9.0-20130301.1735-SNAPSHOT</version>
+  <version>0.9.1-SNAPSHOT</version>
   <name>Empower Mapping Interface</name>
 
   <url>http://maven.apache.org</url>
