@@ -289,14 +289,15 @@ public class XSDParser {
 					
 		        	ArrayList<XSParticle> array = this.getParticleChildren(particle);
 	        		for(XSParticle p: array) {
-	        			if(p.getTerm().isElementDecl()) {
-		                    if(!visitedElements.contains(p.getTerm().asElementDecl().getName())) {
+                        if(p.getTerm().isElementDecl()) {
+		                    //eleni has commented this...
+		                    // if(!visitedElements.contains(p.getTerm().asElementDecl().getName())) {
 		        				JSONObject child = this.getElementDescription(p.getTerm().asElementDecl());
 		                    	BigInteger maxOccurs = p.getMaxOccurs();
                                 BigInteger minOccurs = p.getMinOccurs();
 		                    	child = child.element("maxOccurs", maxOccurs).element("minOccurs", minOccurs);
 		        				elementChildren.add(child);
-		                    }
+		                    //}
 	        			}
 	        		}
 
@@ -753,8 +754,7 @@ public class XSDParser {
 		    	// process attributes
 		    	JSONArray attributes = this.processElementAttributes(complexType);
 	        	result = result.element("attributes", attributes);
-                        
-                        
+
 		    		    			    	
 	        	// process children
 	        	if(particle != null){
